@@ -25,5 +25,10 @@ jobs:
           node --version
           npm --version
           yarn --version
-      - run: "zip release_${RELEASE_VERSION}.zip ./README.md"
+      - run: "zip release.zip ./README.md"
       - run: ls
+      - name: Store zip
+        uses: actions/upload-artifact@v2
+        with:
+          name: "release_${RELEASE_VERSION}"
+          path: release.zip
