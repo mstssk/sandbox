@@ -1,0 +1,21 @@
+name: Tags
+
+on:
+  push:
+    tags: ["v**"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo TAGS
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Show versions
+        run: |
+          node --version
+          npm --version
+          yarn --version

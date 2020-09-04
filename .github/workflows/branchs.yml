@@ -1,0 +1,21 @@
+name: Branch
+
+on:
+  push:
+    - branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo BRANCH
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Show versions
+        run: |
+          node --version
+          npm --version
+          yarn --version
