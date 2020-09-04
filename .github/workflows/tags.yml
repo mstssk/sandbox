@@ -25,3 +25,5 @@ jobs:
           node --version
           npm --version
           yarn --version
+      - run: "zip release_${RELEASE_VERSION}.zip ./README.md"
+      - run: ls
