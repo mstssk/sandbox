@@ -18,3 +18,8 @@ jobs:
           node --version
           npm --version
           yarn --version
+      - name: Store zip
+        uses: actions/upload-artifact@v2
+        with:
+          name: test
+          path: .github/
