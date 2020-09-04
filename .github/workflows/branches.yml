@@ -1,8 +1,7 @@
 name: Branch
 
 on:
-  push:
-    branches: ["**"]
+  - push
 
 jobs:
   build:
