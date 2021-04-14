@@ -10,8 +10,10 @@ jobs:
         include:
           - target_env: stg
             key: 123
+            secret_key: TEST_ENV_STG
           - target_env: prod
             key: 456
+            secret_key: TEST_ENV_PROD
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,6 +26,7 @@ jobs:
           yarn --version
       - run: echo ${{ matrix.target_env }}
       - run: echo ${{ matrix.key }}
+      - run: echo ${{ secrets[matrix.secret_key] }}
       - run: npx @mstssk/whatver node
       - name: Store zip
         uses: actions/upload-artifact@v2
