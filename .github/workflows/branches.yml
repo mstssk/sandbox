@@ -7,7 +7,6 @@ jobs:
   deploy:
     strategy:
       matrix:
-        target_env: [stg, prod]
         include:
           - target_env: stg
             key: 123
