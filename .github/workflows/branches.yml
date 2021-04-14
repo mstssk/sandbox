@@ -4,24 +4,27 @@ on:
   - push
 
 jobs:
-  build:
+  deploy:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        node-version: [12.x, 14.x, 15.x]
-    runs-on: ${{ matrix.os }}
+        target_env: [stg, prod]
+        include:
+          - target_env: stg
+            key: 123
+          - target_env: prod
+            key: 456
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo BRANCH
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Show versions
-        run: |
+          node-version: 15
+      - run: |
           node --version
           npm --version
           yarn --version
+      - run: echo ${{ matrix.target_env }}
+      - run: echo ${{ matrix.key }}
       - run: npx @mstssk/whatver node
       - name: Store zip
         uses: actions/upload-artifact@v2
