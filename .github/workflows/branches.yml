@@ -5,6 +5,7 @@ on:
 
 jobs:
   build:
+    concurrency: ci-${{ github.ref }}
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
