@@ -8,5 +8,5 @@ jobs:
       - uses: actions/github-script@v7
         with:
           script: |
-            const script = require('./pr_comment.js')
+            const script = require('.github/workflows/pr_comment.js')
             console.log(script({octokit, context}))
