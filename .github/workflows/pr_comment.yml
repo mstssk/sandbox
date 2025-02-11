@@ -9,5 +9,5 @@ jobs:
         with:
           script: |
             const script = require('.github/workflows/pr_comment.js')
-            console.log("PR", github.event.pull_request.number);
+            console.log("context", context);
             console.log(script({github, context}));
