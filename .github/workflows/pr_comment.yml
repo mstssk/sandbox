@@ -1,0 +1,12 @@
+on: push
+
+jobs:
+  echo-input:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const script = require('./pr_comment.js')
+            console.log(script({octokit, context}))
