@@ -5,5 +5,7 @@ module.exports = async ({ github, context }) => {
     repo: "sandbox",
     pull_number: 1,
   });
+  console.log("comments.length", comments.length);
+  console.log(comments);
   return comments;
 };
