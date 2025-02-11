@@ -10,4 +10,4 @@ jobs:
           script: |
             const script = require('.github/workflows/pr_comment.js')
             console.log("context", context);
-            console.log(script({github, context}));
+            console.log(await script({github, context}));
