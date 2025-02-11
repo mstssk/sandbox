@@ -9,4 +9,5 @@ jobs:
         with:
           script: |
             const script = require('.github/workflows/pr_comment.js')
-            console.log(script({octokit, context}))
+            console.log("script", script);
+            console.log(script({octokit, context}));
