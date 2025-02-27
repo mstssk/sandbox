@@ -18,7 +18,7 @@ jobs:
           yarn --version
       - run: npx @mstssk/whatver node
       - run: echo 1 && false
-        continue-on-error: true
+        if: ${{ always() }}
       - run: echo 2 && false
-        continue-on-error: true
+        if: ${{ always() }}
       - run: echo ok
