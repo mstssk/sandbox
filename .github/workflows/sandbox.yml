@@ -1,0 +1,24 @@
+name: Sandbox
+
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Show versions
+        run: |
+          node --version
+          npm --version
+          yarn --version
+      - run: npx @mstssk/whatver node
+      - run: echo 1 && false
+        continue-on-error: true
+      - run: echo 2 && false
+        continue-on-error: true
+      - run: echo ok
