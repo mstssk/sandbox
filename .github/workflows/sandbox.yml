@@ -19,7 +19,7 @@ jobs:
       - run: npx @mstssk/whatver node
       - run: echo 1 && false
       - run: echo 2 && false
-        if: ${{ always() }}
+        if: ${{ !cancelled() }}
       - run: echo ok
-        if: ${{ always() }}
+        if: ${{ !cancelled() }}
       - run: echo finish
