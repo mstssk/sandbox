@@ -17,9 +17,9 @@ jobs:
           npm --version
           yarn --version
       - run: npx @mstssk/whatver node
-      - run: echo 1 && false
-      - run: echo 2 && false
+      - run: echo 1
+      - run: echo 2
         if: ${{ !cancelled() }}
-      - run: echo ok
+      - run: echo 3
         if: ${{ !cancelled() }}
       - run: echo finish
