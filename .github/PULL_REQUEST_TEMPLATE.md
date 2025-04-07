@@ -19,4 +19,4 @@
 
 # Checks
 - [ ] Unit test
-- [ ] 動作確認
+- [ ] Confirmation
