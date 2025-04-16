@@ -15,6 +15,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ github.ref_name }}
+      - run: echo "This is master"
+        if: ${{ github.ref_name == 'master' }}
       - uses: actions/checkout@v4
       - run: echo "foo_id=${{ github.event.inputs.foo_id }}"
       - run: echo "bar_type=${{ github.event.inputs.bar_type }}"
