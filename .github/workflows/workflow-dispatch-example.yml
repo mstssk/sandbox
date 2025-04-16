@@ -1,0 +1,26 @@
+on:
+  workflow_dispatch:
+    inputs:
+      foo_id:
+        required: true
+        type: string
+      bar_type:
+        required: true
+        type: string
+      buz_target:
+        required: true
+        type: boolean
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "foo_id=${{ github.event.inputs.foo_id }}"
+      - run: echo "bar_type=${{ github.event.inputs.bar_type }}"
+      - run: echo "buz_target=${{ github.event.inputs.buz_target }}"
+      - run: |
+          node -e "console.log(process.argv.slice(1))" \
+                  "${{ github.event.inputs.foo_id }}" \
+                  "${{ github.event.inputs.bar_type }}" \
+                  "${{ github.event.inputs.buz_target }}"
